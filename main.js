@@ -84,7 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
+    const usesExternalFormHandler = contactForm && contactForm.action.includes('formsubmit.co');
+    if (contactForm && !usesExternalFormHandler) {
         const statusBox = contactForm.querySelector('.form-status');
 
         const setStatus = (message, type = 'success') => {
